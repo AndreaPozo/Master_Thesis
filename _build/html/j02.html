@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Large Scale Predictors</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Index Predictor Definition and Building" href="j03.html" />
+    <link rel="prev" title="1. Databases" href="j01.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logobm.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="j00pp.html">
+   <font color="navy">
+    Seasonal Forecast of Tropical Cyclone Activity in the South Pacific Ocean
+   </font>
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="j01.html">
+   1.
+   <font color="navy">
+    <strong>
+     Databases
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2.
+   <font color="navy">
+    <strong>
+     Large Scale Predictors
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j03.html">
+   3.
+   <font color="navy">
+    <strong>
+     Index Predictor Definition and Building
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j04.html">
+   4.
+   <font color="navy">
+    <strong>
+     Statistical Downscaling Method
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j05.html">
+   5.
+   <font color="navy">
+    <strong>
+     Additional Predictand Variables
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j06.html">
+   6.
+   <font color="navy">
+    <strong>
+     Model Validation
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j07.html">
+   7.
+   <font color="navy">
+    <strong>
+     Seasonal Forecast
+    </strong>
+   </font>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/j02.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AndreaPozo/Seasonal_Forecast_TCs_book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AndreaPozo/Seasonal_Forecast_TCs_book/issues/new?title=Issue%20on%20page%20%2Fj02.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AndreaPozo/Seasonal_Forecast_TCs_book/master?urlpath=tree/full_version/j02.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-madden-julian-oscillation-mjo-font-a-name-mjo-a">
+   2.1.
+   <font color="royalblue">
+    <strong>
+     Madden - Julian Oscillation (MJO)
+    </strong>
+   </font>
+   <a name="mjo">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-annual-weather-type-awt-font-a-name-awt-a">
+   2.2.
+   <font color="royalblue">
+    <strong>
+     Annual Weather type (AWT)
+    </strong>
+   </font>
+   <a name="awt">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-mjo-and-awt-relationship-with-tc-genesis-font-a-name-tc-a">
+   2.3.
+   <font color="royalblue">
+    <strong>
+     MJO and AWT relationship with TC genesis
+    </strong>
+   </font>
+   <a name="tc">
+   </a>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">large_scale_predictors_functions</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1">#put your path</span>
+<span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">forecast_book</span><span class="se">\\</span><span class="s1">large_scale_predictor_data</span><span class="se">\\</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#geopandas as background map</span>
+<span class="n">coasts_low</span><span class="o">=</span><span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;GSHHS_shp</span><span class="se">\\</span><span class="s1">h</span><span class="se">\\</span><span class="s1">GSHHS_h_L1.shp&#39;</span><span class="p">)[[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
+<span class="n">gdf_l</span><span class="o">=</span><span class="n">shift_map</span><span class="p">(</span><span class="n">coasts_low</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br />
+<br />
+<br />
+<div class="section" id="font-color-navy-large-scale-predictors-font">
+<h1><span class="section-number">2. </span><font color='navy'><strong>Large Scale Predictors</strong></font><a class="headerlink" href="#font-color-navy-large-scale-predictors-font" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="#mjo">Madden - Jullian Oscillation (MJO)</a> <br><br>
+<a class="reference external" href="#awt">Annual Weather type (AWT)</a> <br><br>
+<a class="reference external" href="#tc">MJO and AWT relationship with TC genesis</a> <br><br></p>
+</div></blockquote>
+<br>
+<br><div class="section" id="font-color-royalblue-madden-julian-oscillation-mjo-font-a-name-mjo-a">
+<h2><span class="section-number">2.1. </span><font color='royalblue'><strong>Madden - Julian Oscillation (MJO)</strong></font> <a name="mjo"></a><a class="headerlink" href="#font-color-royalblue-madden-julian-oscillation-mjo-font-a-name-mjo-a" title="Permalink to this headline">¶</a></h2>
+<p>The MJO is an eastward moving disturbance of clouds, rainfall, winds, and pressure that crosses the planet in the tropics and returns to its initial starting point in cycles of approximately 30 or 60 days. It is the dominant mode of atmospheric intraseasonal variability in the tropics <span class="math notranslate nohighlight">\(\href{https://journals.ametsoc.org/view/journals/wefo/18/4/1520-0434_2003_018_0600_tiotmo_2_0_co_2.xml}{\text{(Hendon &amp; Salby, 1994)}}\)</span>:
+<br></p>
+<p>The MJO consists of two phases: <strong>the enhanced rainfall and the the suppressed rainfall</strong>. They produce opposite changes in clouds and rainfall and this entire dipole propagates eastward. Strongest MJO activity often divides the planet into halves: one half within the enhanced convective phase and the other half in the suppressed convective phase.
+<br></p>
+<p>The MJO phases can be observed and represented through the <strong>RMM index</strong>, which is a combined cloudiness- and circulation-based index that has been frequently used for real-time prediction and definition of the MJO <span class="math notranslate nohighlight">\(\href{https://journals.ametsoc.org/view/journals/mwre/132/8/1520-0493_2004_132_1917_aarmmi_2.0.co_2.xml}{\text{(Wheeler &amp; Hendon, 2004)}}\)</span>:</p>
+<p><img alt="TITLE" src="_images/mjo1.png" /></p>
+<br>
+<br>
+<br>
+</div>
+<div class="section" id="font-color-royalblue-annual-weather-type-awt-font-a-name-awt-a">
+<h2><span class="section-number">2.2. </span><font color='royalblue'><strong>Annual Weather type (AWT)</strong></font> <a name="awt"></a><a class="headerlink" href="#font-color-royalblue-annual-weather-type-awt-font-a-name-awt-a" title="Permalink to this headline">¶</a></h2>
+<p>ENSO is one of the most important climate phenomena on Earth due to its ability to change the global atmospheric circulation; since it can lead to changes in sea-level pressures, sea-surface temperatures, precipitation and winds across the globe. <strong>ENSO describes the natural interannual variations in the ocean and atmosphere in the tropical Pacific</strong>. This interaction between the atmosphere and ocean is the source of a periodic variation between below-normal and above-normal sea surface temperatures and dry and wet conditions along the years. The tropical ocean affects the atmosphere above it and the atmosphere influences the ocean below it.
+<br></p>
+<p>Typical behavior of the couple system of ocean and atmosphere during El Niño in the equatorial Pacific <span class="math notranslate nohighlight">\(\href{http://www.bom.gov.au/watl/about-weather-and-climate/australian-climate-influences.shtml?bookmark=enso}{\text{(Australian Bureau of Meteorology)}}\)</span>:
+<br></p>
+<p><img alt="TITLE" src="_images/awt0.jpg" /></p>
+<br>
+<br>
+<br>
+<p>Patterns <span class="math notranslate nohighlight">\(\href{https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2019JC015312}{\text{(Anderson,et al.,2019)}}\)</span>
+<img alt="TITLE" src="_images/awts.png" /></p>
+<br>
+<br><br>
+</div>
+<div class="section" id="font-color-royalblue-mjo-and-awt-relationship-with-tc-genesis-font-a-name-tc-a">
+<h2><span class="section-number">2.3. </span><font color='royalblue'><strong>MJO and AWT relationship with TC genesis</strong></font> <a name="tc"></a><a class="headerlink" href="#font-color-royalblue-mjo-and-awt-relationship-with-tc-genesis-font-a-name-tc-a" title="Permalink to this headline">¶</a></h2>
+<br>
+<p><strong>TCs tracks transferred to MJO+AWT combinations according to the genesis point, with the combination probability as the background color</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_tcs</span> <span class="o">=</span> <span class="n">plot_tcs_mjo_awt</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">gdf_l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j02_12_0.png" src="_images/j02_12_0.png" />
+</div>
+</div>
+<br>
+<p><strong>TCs tracks reaching category 3 or greater transferred to MJO+AWT combinations according to the genesis point, with the combination probability as the background color</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcs3_mjo_awt</span> <span class="o">=</span> <span class="n">plot_tcs3_mjo_awt</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">gdf_l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j02_14_0.png" src="_images/j02_14_0.png" />
+</div>
+</div>
+<br>
+<p><strong>Density histogram of TC genesis according to AWT</strong></p>
+<p><img alt="TITLE" src="_images/awt1.png" /></p>
+<br>
+<p><strong>Daily mean precipitation (TRMM) transferred to MJO+AWT combinations</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">forecast_book</span><span class="se">\\</span><span class="s1">large_scale_predictor_data</span><span class="se">\\</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_trmm</span> <span class="o">=</span> <span class="n">plot_trmm</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">gdf_l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j02_19_0.png" src="_images/j02_19_0.png" />
+</div>
+</div>
+<br>
+<p><strong>Daily mean precipitation (TRMM) anomalies transferred to MJO+AWT combinations</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_anom_trmm</span> <span class="o">=</span> <span class="n">plot_anom_trmm</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">gdf_l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j02_21_0.png" src="_images/j02_21_0.png" />
+</div>
+</div>
+<br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>Conclusions:</strong></p>
+<ul class="simple">
+<li><p>MJO phases 6,7 and 8 and AWT 1 and 3 show the highest TC genesis activity.<br></p></li>
+<li><p>The combination MJO phase 7 + AWT 4 is the most intense one for all TC categories and when filtering from category 2.</p></li>
+<li><p><strong>El Niño, which is highly unlikely has fewer TC genesis but it is the most active in TCs genesis with respect of its total days and a greater proportion of TCs reaching at least category 2.</strong><br></p></li>
+<li><p>AWT 2 is the least probable and is the one with least TCs genesis activity.<br></p></li>
+<li><p>AWT 1 have same TCs genesis along all MJO phases.<br></p></li>
+<li><p>TCs genesis occurs generally in areas of intense precipitation, above the mean (positive anomalies) and the higher categories of TC are linked with the most extended and amongst the most intense precipitation clouds.</p></li>
+</ul>
+</div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="j01.html" title="previous page"><span class="section-number">1. </span><font color='navy'><strong>Databases</strong> </font></a>
+    <a class='right-next' id="next-link" href="j03.html" title="next page"><span class="section-number">3. </span><font color='navy'><strong>Index Predictor Definition and Building</strong> </font></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By GeoOcean<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
