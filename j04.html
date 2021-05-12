@@ -1,0 +1,2293 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Statistical Downscaling Method</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Additional Predictand Variables" href="j05.html" />
+    <link rel="prev" title="3. Index Predictor Definition and Building" href="j03.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logobm.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="j00pp.html">
+   <font color="navy">
+    Seasonal Forecast of Tropical Cyclone Activity in the South Pacific Ocean
+   </font>
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="j01.html">
+   1.
+   <font color="navy">
+    <strong>
+     Databases
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j02.html">
+   2.
+   <font color="navy">
+    <strong>
+     Large Scale Predictors
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j03.html">
+   3.
+   <font color="navy">
+    <strong>
+     Index Predictor Definition and Building
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4.
+   <font color="navy">
+    <strong>
+     Statistical Downscaling Method
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j05.html">
+   5.
+   <font color="navy">
+    <strong>
+     Additional Predictand Variables
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j06.html">
+   6.
+   <font color="navy">
+    <strong>
+     Model Validation
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j07.html">
+   7.
+   <font color="navy">
+    <strong>
+     Seasonal Forecast
+    </strong>
+   </font>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/j04.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AndreaPozo/Seasonal_Forecast_TCs_book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AndreaPozo/Seasonal_Forecast_TCs_book/issues/new?title=Issue%20on%20page%20%2Fj04.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AndreaPozo/Seasonal_Forecast_TCs_book/master?urlpath=tree/full_version/j04.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-daily-weather-types-dwts-classification-font-a-name-dwt-a">
+   4.1.
+   <font color="royalblue">
+    <strong>
+     Daily Weather Types (DWTs) classification
+    </strong>
+   </font>
+   <a name="dwt">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-principal-component-analysis-pca-font-a-name-pca-a">
+     4.1.1.
+     <font color="cornflowerblue">
+      <strong>
+       Principal Component Analysis (PCA)
+      </strong>
+     </font>
+     <a name="pca">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-k-means-clustering-font-a-name-km-a">
+     4.1.2.
+     <font color="cornflowerblue">
+      <strong>
+       K-means clustering
+      </strong>
+     </font>
+     <a name="km">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-dwts-plotting-font-a-name-plot-a">
+     4.1.3.
+     <font color="cornflowerblue">
+      <strong>
+       DWTs plotting
+      </strong>
+     </font>
+     <a name="plot">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-cluster-homegeinity-font-a-name-ch-a">
+     4.1.4.
+     <font color="cornflowerblue">
+      <strong>
+       Cluster homegeinity
+      </strong>
+     </font>
+     <a name="ch">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-dwts-plotting-with-predictand-variables-font-a-name-plotp-a">
+     4.1.5.
+     <font color="cornflowerblue">
+      <strong>
+       DWTs plotting with predictand variables
+      </strong>
+     </font>
+     <a name="plotp">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-dwts-seasonality-annual-variability-and-chronology-font-a-name-chrono-a">
+   4.2.
+   <font color="royalblue">
+    <strong>
+     DWTs seasonality, annual variability and chronology
+    </strong>
+   </font>
+   <a name="chrono">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-relationship-predictor-predictand-font-a-name-pp-a">
+   4.3.
+   <font color="royalblue">
+    <strong>
+     Relationship predictor-predictand
+    </strong>
+   </font>
+   <a name="pp">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-dwts-storm-frequency-and-track-counting-font-a-name-count-a">
+     4.3.1.
+     <font color="cornflowerblue">
+      <strong>
+       DWTs storm frequency and track counting
+      </strong>
+     </font>
+     <a name="count">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-cornflowerblue-calibration-time-period-predictand-plotting-font-a-name-cali-a">
+     4.3.2.
+     <font color="cornflowerblue">
+      <strong>
+       Calibration time period predictand plotting
+      </strong>
+     </font>
+     <a name="cali">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># common</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+
+<span class="c1">#lib</span>
+<span class="kn">from</span> <span class="nn">lib.calibration</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">lib.predictor_definition_building</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">lib.PCA_predictor_sst_mld</span> <span class="kn">import</span> <span class="n">PCA_EstelaPred_sea_mask</span><span class="p">,</span> <span class="n">Plot_EOFs_EstelaPred</span><span class="p">,</span> <span class="n">standardise_predictor_prep</span>
+<span class="kn">from</span> <span class="nn">lib.mda</span> <span class="kn">import</span> <span class="n">Normalize</span><span class="p">,</span> <span class="n">DeNormalize</span>
+<span class="kn">from</span> <span class="nn">lib.plots_kma</span> <span class="kn">import</span> <span class="n">plot_3D_kmeans</span><span class="p">,</span> <span class="n">plot_scatter_kmeans</span><span class="p">,</span> <span class="n">plot_grid_kmeans</span>
+<span class="kn">from</span> <span class="nn">lib.plots_base</span> <span class="kn">import</span> <span class="n">basemap_ibtracs</span><span class="p">,</span> <span class="n">basemap_var</span><span class="p">,</span> <span class="n">basemap_scatter</span><span class="p">,</span> <span class="n">axplot_basemap</span><span class="p">,</span> <span class="n">basemap_scatter_both</span>
+<span class="kn">from</span> <span class="nn">lib.plots_dwts</span> <span class="kn">import</span> <span class="n">colorp</span><span class="p">,</span> <span class="n">custom_colorp</span><span class="p">,</span> <span class="n">Plot_DWTs_Mean_Anom</span><span class="p">,</span> <span class="n">Plot_DWTs_totalmean</span><span class="p">,</span>\
+<span class="n">Plot_Probs_WT_WT</span><span class="p">,</span> <span class="n">Plot_Probs_WT_WT_anomaly</span><span class="p">,</span> <span class="n">Plot_Probs_WT_WT_WT</span><span class="p">,</span> <span class="n">Plot_DWTs_Probs</span><span class="p">,</span> \
+<span class="n">Report_Sim_oneyear</span><span class="p">,</span> <span class="n">Report_Sim</span><span class="p">,</span> <span class="n">Plot_DWTs_counts</span><span class="p">,</span> <span class="n">Chrono_dwts_tcs</span><span class="p">,</span> <span class="n">Chrono_probs_tcs</span><span class="p">,</span> <span class="n">Plot_dwts_colormap</span>
+<span class="kn">from</span> <span class="nn">lib.plots_tcs</span> <span class="kn">import</span> <span class="n">get_storm_color</span><span class="p">,</span> <span class="n">get_category</span><span class="p">,</span> <span class="n">Plot_DWTs_tracks</span>
+<span class="kn">from</span> <span class="nn">lib.plots_aux</span> <span class="kn">import</span> <span class="n">data_to_discret</span><span class="p">,</span> <span class="n">colors_dwt</span>
+<span class="kn">from</span> <span class="nn">lib.extract_tcs</span> <span class="kn">import</span> <span class="n">Extract_Rectangle</span><span class="p">,</span> <span class="n">dwt_tcs_count</span><span class="p">,</span> <span class="n">dwt_tcs_count_tracks</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="section" id="font-color-navy-statistical-downscaling-method-font">
+<h1><span class="section-number">4. </span><font color='navy'><strong>Statistical Downscaling Method</strong> </font><a class="headerlink" href="#font-color-navy-statistical-downscaling-method-font" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="#dwt">Daily Weather Types (DWTs) classification</a> <br> <br></p>
+<blockquote>
+<div><p><a class="reference external" href="#pca">Principal Component Analysis (PCA)</a><br> <br>
+<a class="reference external" href="#km">K-means clustering</a><br> <br>
+<a class="reference external" href="#plot">DWTs plotting</a><br> <br>
+<a class="reference external" href="#ch">Cluster homegeneity</a><br> <br>
+<a class="reference external" href="#plotp">DWTs plotting with predictand variables</a><br> <br></p>
+</div></blockquote>
+</div></blockquote>
+<p><a class="reference external" href="#chrono">DWTs chronology, seasonality and temporal variability</a> <br> <br>
+<a class="reference external" href="#pp">Relationship predictor-predictand</a><br> <br></p>
+<blockquote>
+<div><blockquote>
+<div><p><a class="reference external" href="#count">DWTs storm frequency and track counting</a><br> <br>
+<a class="reference external" href="#cali">Calibration time period prdictand plotting</a><br> <br></p>
+</div></blockquote>
+</div></blockquote>
+<br />
+<br />
+<div class="section" id="font-color-royalblue-daily-weather-types-dwts-classification-font-a-name-dwt-a">
+<h2><span class="section-number">4.1. </span><font color='royalblue'><strong>Daily Weather Types (DWTs) classification</strong></font> <a name="dwt"></a><a class="headerlink" href="#font-color-royalblue-daily-weather-types-dwts-classification-font-a-name-dwt-a" title="Permalink to this headline">¶</a></h2>
+<p><strong>A weather type approach is proposed.</strong><br>
+<strong>The index predictor is first partioned into a certain number of clusters, DWTS, obtained combining three data mining techniques.</strong><br></p>
+<br />
+<div class="section" id="font-color-cornflowerblue-principal-component-analysis-pca-font-a-name-pca-a">
+<h3><span class="section-number">4.1.1. </span><font color='cornflowerblue'><strong>Principal Component Analysis (PCA)</strong></font> <a name="pca"></a><a class="headerlink" href="#font-color-cornflowerblue-principal-component-analysis-pca-font-a-name-pca-a" title="Permalink to this headline">¶</a></h3>
+<p><strong>The PCA is employed to reduce the high dimensionality of the original data space and thus simplify the classification process, transforming the predictor fields into spatial and temporal modes.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_p</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/seasonal/seasonal_forecast/new/&#39;</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;xs_index_vars_19822019_2deg_new.nc&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;df_coordinates_pmin_sst_mld_2019.pkl&#39;</span><span class="p">)</span>
+<span class="n">xs_trmm</span> <span class="o">=</span> <span class="n">xs_trmm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;xs_trmm_1982_2019_2deg_new.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># predictor area</span>
+<span class="n">lo_area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">210</span><span class="p">]</span>
+<span class="n">la_area</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PCA parameters</span>
+<span class="n">ipca</span><span class="p">,</span> <span class="n">xds_PCA</span> <span class="o">=</span> <span class="n">PCA_EstelaPred_sea_mask</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span> <span class="c1">#ipca son las componentes principales, las 416 que salen</span>
+<span class="n">xds_PCA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:        (lat: 16, lon: 26, n_components: 416, n_features: 416, n_points: 416, time: 13879)
+Coordinates:
+  * lon            (lon) float64 160.2 162.2 164.2 166.2 ... 206.2 208.2 210.2
+  * lat            (lat) float64 -0.25 -2.25 -4.25 ... -26.25 -28.25 -30.25
+Dimensions without coordinates: n_components, n_features, n_points, time
+Data variables:
+    PCs            (time, n_components) float64 6.68 -0.6377 ... -0.5949 0.2736
+    EOFs           (n_components, n_features) float64 -0.01639 ... -0.04297
+    variance       (n_components) float64 131.6 25.35 15.47 ... 0.1448 0.1397
+    pred_mean      (n_features) float64 0.54 0.5337 0.52 ... 0.1504 0.09442
+    pred_std       (n_features) float64 0.2995 0.3035 0.3018 ... 0.189 0.1484
+    pred_time      (time) datetime64[ns] 1982-01-01 1982-01-02 ... 2019-12-31
+    pred_data_pos  (n_points) bool True True True True ... True True True True
+Attributes:
+    method:     gradient + estela + sea mask
+    pred_name:  [&#x27;index&#x27;]</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-5315afca-c2fc-4ab5-86e6-0c897bab95fa' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5315afca-c2fc-4ab5-86e6-0c897bab95fa' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 16</li><li><span class='xr-has-index'>lon</span>: 26</li><li><span>n_components</span>: 416</li><li><span>n_features</span>: 416</li><li><span>n_points</span>: 416</li><li><span>time</span>: 13879</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f727772b-2e09-40db-8603-8e9d602deabf' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f727772b-2e09-40db-8603-8e9d602deabf' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>160.2 162.2 164.2 ... 208.2 210.2</div><input id='attrs-61b10ec7-cccc-4c35-aeed-68adf4781a59' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-61b10ec7-cccc-4c35-aeed-68adf4781a59' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-45bbffc5-bb9c-4c7f-99a5-230b564994fe' class='xr-var-data-in' type='checkbox'><label for='data-45bbffc5-bb9c-4c7f-99a5-230b564994fe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([160.25, 162.25, 164.25, 166.25, 168.25, 170.25, 172.25, 174.25, 176.25,
+       178.25, 180.25, 182.25, 184.25, 186.25, 188.25, 190.25, 192.25, 194.25,
+       196.25, 198.25, 200.25, 202.25, 204.25, 206.25, 208.25, 210.25])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.25 -2.25 -4.25 ... -28.25 -30.25</div><input id='attrs-fbdb4656-25f1-4116-a59b-057ffc1d48dd' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fbdb4656-25f1-4116-a59b-057ffc1d48dd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f022a1e-2d2b-4d9c-9cbf-f1539ab600dd' class='xr-var-data-in' type='checkbox'><label for='data-5f022a1e-2d2b-4d9c-9cbf-f1539ab600dd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -0.25,  -2.25,  -4.25,  -6.25,  -8.25, -10.25, -12.25, -14.25, -16.25,
+       -18.25, -20.25, -22.25, -24.25, -26.25, -28.25, -30.25])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f9582ccd-d9b0-411b-996b-faea969a8280' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f9582ccd-d9b0-411b-996b-faea969a8280' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>PCs</span></div><div class='xr-var-dims'>(time, n_components)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>6.68 -0.6377 ... -0.5949 0.2736</div><input id='attrs-3882376a-b916-4698-a965-c8a78719c192' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3882376a-b916-4698-a965-c8a78719c192' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d40a5224-39c7-42c3-a41f-dec1dc14f7a1' class='xr-var-data-in' type='checkbox'><label for='data-d40a5224-39c7-42c3-a41f-dec1dc14f7a1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 6.67994212e+00, -6.37729239e-01, -3.87552747e+00, ...,
+         2.39665893e-01, -4.86892725e-01,  3.40230952e-01],
+       [ 6.09329282e+00,  1.30694801e+00, -3.79589750e+00, ...,
+         8.19304545e-01,  3.04710583e-02,  6.54359903e-03],
+       [ 4.45010127e+00,  2.46279897e+00, -1.91427304e+00, ...,
+        -3.22231723e-01, -3.03707701e-01, -2.84991838e-01],
+       ...,
+       [ 1.31035583e+01, -1.02209621e+01, -8.71322931e-01, ...,
+         2.09556035e-01,  2.37184764e-01,  2.19407426e-01],
+       [ 1.27822259e+01, -9.98505935e+00, -1.83883819e+00, ...,
+        -4.41388056e-01, -5.18028094e-02,  3.70903079e-01],
+       [ 1.34469405e+01, -9.43120185e+00, -2.44092759e+00, ...,
+         6.90643423e-01, -5.94912637e-01,  2.73552285e-01]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>EOFs</span></div><div class='xr-var-dims'>(n_components, n_features)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.01639 -0.008938 ... -0.04297</div><input id='attrs-4ead372e-7de9-469d-8b48-ae18b6aba5a9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4ead372e-7de9-469d-8b48-ae18b6aba5a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a6e553ef-72bd-4a2f-bcda-5e8f04a311be' class='xr-var-data-in' type='checkbox'><label for='data-a6e553ef-72bd-4a2f-bcda-5e8f04a311be' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.01638828, -0.00893778, -0.00752534, ...,  0.06899045,
+         0.06696785,  0.06172887],
+       [ 0.05518009,  0.0687087 ,  0.06788741, ...,  0.00033369,
+        -0.00571499, -0.01385645],
+       [ 0.02890989,  0.02861863,  0.01528563, ...,  0.0323175 ,
+         0.04934447,  0.06284409],
+       ...,
+       [-0.0061641 ,  0.01021898, -0.01006608, ..., -0.07430323,
+         0.10676279, -0.01249618],
+       [-0.00122058,  0.00988357, -0.01105174, ..., -0.10590161,
+        -0.04245473,  0.01834912],
+       [ 0.00842654, -0.00358871,  0.00694767, ...,  0.07506305,
+         0.03225488, -0.04297324]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>variance</span></div><div class='xr-var-dims'>(n_components)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>131.6 25.35 15.47 ... 0.1448 0.1397</div><input id='attrs-17768808-e403-42c1-976a-78d0e9f612fa' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-17768808-e403-42c1-976a-78d0e9f612fa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-72bca5a8-1586-4253-8650-d0da6b6e726a' class='xr-var-data-in' type='checkbox'><label for='data-72bca5a8-1586-4253-8650-d0da6b6e726a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([131.64274977,  25.34581048,  15.46652883,  13.34737362,
+        10.53287141,   7.26337741,   5.14983483,   5.02089298,
+         4.08336288,   3.82352172,   3.57216484,   3.30011297,
+         2.80405522,   2.55503605,   2.36274753,   2.03645887,
+         1.99034736,   1.87309313,   1.69474545,   1.62419988,
+         1.56028188,   1.5355244 ,   1.50105351,   1.45620212,
+         1.37079399,   1.34406247,   1.31973934,   1.25567107,
+         1.21479961,   1.17335504,   1.1169838 ,   1.09965385,
+         1.08199765,   1.05381622,   1.03447827,   1.00570478,
+         0.98592966,   0.97017373,   0.94316008,   0.91822683,
+         0.90199613,   0.89901549,   0.88685725,   0.87460378,
+         0.87226459,   0.86446383,   0.84919207,   0.84558802,
+         0.83382912,   0.82944157,   0.82155   ,   0.81042406,
+         0.80511193,   0.79907626,   0.79277355,   0.78325347,
+         0.77709823,   0.76691408,   0.76652411,   0.75845838,
+         0.75065406,   0.74438536,   0.73726364,   0.73489394,
+         0.72623559,   0.72147707,   0.71703716,   0.71382713,
+         0.70843958,   0.70218976,   0.69773093,   0.69513374,
+         0.69059061,   0.68166718,   0.67373096,   0.67160456,
+         0.66867059,   0.66477   ,   0.66110654,   0.66044414,
+...
+         0.21790092,   0.21747977,   0.2165643 ,   0.2148707 ,
+         0.21386225,   0.21291545,   0.21199675,   0.21153047,
+         0.21094634,   0.20845181,   0.20814633,   0.20799706,
+         0.20645534,   0.20607278,   0.20525517,   0.20450226,
+         0.20384864,   0.20210463,   0.20128487,   0.20082165,
+         0.20035301,   0.19839816,   0.19712263,   0.1963389 ,
+         0.19557859,   0.19532524,   0.19456297,   0.19370022,
+         0.19287286,   0.19195208,   0.19124073,   0.19030224,
+         0.18877291,   0.18820269,   0.18742787,   0.18578747,
+         0.18497097,   0.18444661,   0.18330223,   0.18277882,
+         0.18186853,   0.18165936,   0.18072718,   0.17977166,
+         0.17950249,   0.17781224,   0.17719652,   0.17604725,
+         0.17592837,   0.17483589,   0.17401784,   0.17322791,
+         0.17262401,   0.17096704,   0.17019602,   0.1695882 ,
+         0.16910111,   0.16702432,   0.16653686,   0.16580361,
+         0.16427548,   0.16410693,   0.1639198 ,   0.16306108,
+         0.1618344 ,   0.16108711,   0.15933581,   0.15879312,
+         0.15815249,   0.15656405,   0.1550374 ,   0.15427334,
+         0.15318852,   0.15191504,   0.15094374,   0.15047558,
+         0.14795559,   0.14541237,   0.14481357,   0.13970833])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pred_mean</span></div><div class='xr-var-dims'>(n_features)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.54 0.5337 0.52 ... 0.1504 0.09442</div><input id='attrs-df032b79-a23d-464d-8ad0-1601c6ad2835' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-df032b79-a23d-464d-8ad0-1601c6ad2835' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9ade5eda-31a3-4dd2-891d-79b6c204903b' class='xr-var-data-in' type='checkbox'><label for='data-9ade5eda-31a3-4dd2-891d-79b6c204903b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.53998187, 0.53367197, 0.51996962, 0.49898648, 0.59586786,
+       0.65837296, 0.6575882 , 0.6002846 , 0.53495449, 0.46864928,
+       0.37675085, 0.3018193 , 0.25347407, 0.21809929, 0.16881199,
+       0.1237367 , 0.54012537, 0.52526059, 0.51035858, 0.46031294,
+       0.57311886, 0.66485878, 0.64812967, 0.59201912, 0.54259373,
+       0.44689099, 0.36835747, 0.30282621, 0.25061063, 0.21074045,
+       0.16213164, 0.12097113, 0.5317452 , 0.51116735, 0.49377297,
+       0.42152893, 0.53428741, 0.63607549, 0.63345042, 0.57959027,
+       0.51403139, 0.46286176, 0.38984617, 0.28709861, 0.25160134,
+       0.21169933, 0.15713968, 0.11583868, 0.50932764, 0.47708829,
+       0.4651728 , 0.39919543, 0.50868819, 0.61458679, 0.62655931,
+       0.59637882, 0.53044528, 0.4700891 , 0.41424274, 0.26842472,
+       0.24688438, 0.21609506, 0.15027199, 0.10774491, 0.47634376,
+       0.45311202, 0.46828842, 0.4146102 , 0.48887768, 0.61005776,
+       0.62183034, 0.57844886, 0.55837596, 0.49477328, 0.41005056,
+       0.34701407, 0.26864508, 0.2042144 , 0.14388525, 0.10413394,
+       0.44233374, 0.42213416, 0.46870152, 0.43170557, 0.48252756,
+       0.59170029, 0.62202668, 0.59131362, 0.55720453, 0.48841955,
+       0.40518949, 0.33297128, 0.26584408, 0.19836564, 0.14069337,
+       0.09486634, 0.42369527, 0.36456397, 0.43839194, 0.42655211,
+...
+       0.36576843, 0.33111475, 0.31976067, 0.25604751, 0.26403679,
+       0.4162854 , 0.5522474 , 0.57086786, 0.52461693, 0.4998649 ,
+       0.41493684, 0.34103802, 0.27593547, 0.20380311, 0.14589127,
+       0.09788049, 0.38100848, 0.36357807, 0.34261894, 0.27691897,
+       0.2964869 , 0.43439189, 0.56014602, 0.58779031, 0.51940882,
+       0.50438492, 0.43335495, 0.33575125, 0.27839842, 0.20413214,
+       0.15177186, 0.09841427, 0.38666631, 0.39108485, 0.37129116,
+       0.29178675, 0.31397975, 0.43790979, 0.56794678, 0.5574411 ,
+       0.49376636, 0.49124877, 0.41967541, 0.34131782, 0.27675565,
+       0.20830331, 0.14920203, 0.09853316, 0.38128287, 0.38952254,
+       0.36315176, 0.29821133, 0.33290943, 0.45011648, 0.56837849,
+       0.54448507, 0.48810133, 0.49749021, 0.41294041, 0.33569602,
+       0.2710624 , 0.20615438, 0.14808584, 0.10135757, 0.35985061,
+       0.37404952, 0.34132442, 0.28404424, 0.33483981, 0.46087795,
+       0.56521303, 0.55542426, 0.49338749, 0.49651632, 0.42163701,
+       0.32653709, 0.27059887, 0.20872121, 0.14773519, 0.10580493,
+       0.35869779, 0.3686847 , 0.3330049 , 0.2728925 , 0.32669861,
+       0.46455736, 0.57478565, 0.57876708, 0.5136273 , 0.498876  ,
+       0.41482696, 0.32659654, 0.25918954, 0.20960264, 0.15043051,
+       0.09442443])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pred_std</span></div><div class='xr-var-dims'>(n_features)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.2995 0.3035 ... 0.189 0.1484</div><input id='attrs-0de3fda8-a369-4be0-8505-cd949402976f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0de3fda8-a369-4be0-8505-cd949402976f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6f3a30a0-f600-4eec-b92e-8296d8009e74' class='xr-var-data-in' type='checkbox'><label for='data-6f3a30a0-f600-4eec-b92e-8296d8009e74' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.29953361, 0.30348355, 0.30182221, 0.28025329, 0.25606013,
+       0.22307617, 0.22529552, 0.26588946, 0.29468069, 0.28759131,
+       0.27156829, 0.25987244, 0.23706363, 0.21900893, 0.2006173 ,
+       0.18132445, 0.29994708, 0.30854947, 0.30475345, 0.2890444 ,
+       0.25712927, 0.22327403, 0.2320874 , 0.27941467, 0.29192967,
+       0.29288378, 0.27898443, 0.26164517, 0.23677153, 0.21592654,
+       0.19426856, 0.17730198, 0.3018292 , 0.31089719, 0.30638264,
+       0.29332476, 0.27205375, 0.22955191, 0.24173479, 0.2812097 ,
+       0.31222786, 0.30080792, 0.31115958, 0.27011214, 0.2398418 ,
+       0.2111086 , 0.18792022, 0.16747645, 0.3083945 , 0.31615395,
+       0.30867123, 0.29745046, 0.27920362, 0.2412599 , 0.24491526,
+       0.27231063, 0.3103387 , 0.30514461, 0.29071279, 0.24667141,
+       0.238017  , 0.21191746, 0.18449945, 0.15956501, 0.31602784,
+       0.31669276, 0.30791304, 0.29906966, 0.28411108, 0.24740566,
+       0.24343498, 0.28049193, 0.29220782, 0.29619615, 0.28590387,
+       0.25082406, 0.23475731, 0.20466548, 0.1808274 , 0.15580671,
+       0.32321238, 0.32160221, 0.30892094, 0.29932862, 0.28250227,
+       0.25028254, 0.24183198, 0.26603217, 0.29133328, 0.28217052,
+       0.28774463, 0.2515593 , 0.23259625, 0.20667717, 0.17632579,
+       0.14566696, 0.32287105, 0.32553137, 0.31574028, 0.30237531,
+...
+       0.30219428, 0.30101201, 0.3117766 , 0.30484511, 0.29227782,
+       0.2866685 , 0.25981328, 0.28017923, 0.30897407, 0.30495298,
+       0.30549208, 0.27820345, 0.24428951, 0.21343088, 0.18770866,
+       0.14986859, 0.30091221, 0.30285205, 0.31113175, 0.3105011 ,
+       0.30211579, 0.27873334, 0.26049633, 0.27694092, 0.30953024,
+       0.30601748, 0.30565407, 0.27300942, 0.24387514, 0.20988118,
+       0.18999165, 0.14829653, 0.29581047, 0.30312147, 0.31046163,
+       0.31245606, 0.30428131, 0.27957001, 0.25925402, 0.29244031,
+       0.31922737, 0.31109147, 0.30897647, 0.27718369, 0.24538678,
+       0.21371233, 0.18712581, 0.15021565, 0.29237262, 0.30211645,
+       0.31296059, 0.31486574, 0.30582247, 0.2832613 , 0.26014904,
+       0.29964721, 0.32316029, 0.30960682, 0.31018865, 0.2830848 ,
+       0.24744559, 0.21636525, 0.18861696, 0.15363665, 0.287863  ,
+       0.29953378, 0.30915618, 0.31165465, 0.30680557, 0.28118438,
+       0.26586088, 0.29820641, 0.32533875, 0.31487527, 0.31575548,
+       0.28487174, 0.25056659, 0.21714804, 0.18757845, 0.15847191,
+       0.28819318, 0.29916791, 0.30539157, 0.30924544, 0.30628883,
+       0.27495788, 0.26319814, 0.29128246, 0.32493021, 0.31964785,
+       0.31579787, 0.28616585, 0.25289981, 0.21878419, 0.18895277,
+       0.14839897])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pred_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1982-01-01 ... 2019-12-31</div><input id='attrs-edecb60d-c064-44e6-b0ca-67acc3c23350' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-edecb60d-c064-44e6-b0ca-67acc3c23350' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8f35aca4-51f4-42aa-ba01-d679bc0c4b42' class='xr-var-data-in' type='checkbox'><label for='data-8f35aca4-51f4-42aa-ba01-d679bc0c4b42' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1982-01-01T00:00:00.000000000&#x27;, &#x27;1982-01-02T00:00:00.000000000&#x27;,
+       &#x27;1982-01-03T00:00:00.000000000&#x27;, ...,
+       &#x27;2019-12-29T00:00:00.000000000&#x27;, &#x27;2019-12-30T00:00:00.000000000&#x27;,
+       &#x27;2019-12-31T00:00:00.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>pred_data_pos</span></div><div class='xr-var-dims'>(n_points)</div><div class='xr-var-dtype'>bool</div><div class='xr-var-preview xr-preview'>True True True ... True True True</div><input id='attrs-3e4e503e-e747-4ea4-97db-5984ba8b103e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3e4e503e-e747-4ea4-97db-5984ba8b103e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c4140e20-c46c-4feb-9398-51c5cbc45338' class='xr-var-data-in' type='checkbox'><label for='data-c4140e20-c46c-4feb-9398-51c5cbc45338' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+...
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True,  True])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b626635a-d7f3-47e5-ad8c-c12d7b997595' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b626635a-d7f3-47e5-ad8c-c12d7b997595' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>method :</span></dt><dd>gradient + estela + sea mask</dd><dt><span>pred_name :</span></dt><dd>[&#x27;index&#x27;]</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<br>
+<p><strong>PCA projects the original data on a new space searching for the maximum variance of the sample data.</strong><br>
+<strong>The first 237 PCs are captured, which explain the 90 % of the variability as shown:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variance_PCA</span> <span class="o">=</span> <span class="n">plot_graph_variance_PCA</span><span class="p">(</span><span class="n">xds_PCA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_11_0.png" src="_images/j04_11_0.png" />
+</div>
+</div>
+<br>
+<p><strong>The eigenvectors (the empirical orthogonal functions, EOFs) of the data covariance matrix define the vectors of the new space.</strong><br>
+<strong>They represent the spatial variability.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_eofs</span> <span class="o">=</span> <span class="n">Plot_EOFs_EstelaPred</span><span class="p">(</span><span class="n">xds_PCA</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_13_0.png" src="_images/j04_13_0.png" />
+<img alt="_images/j04_13_1.png" src="_images/j04_13_1.png" />
+<img alt="_images/j04_13_2.png" src="_images/j04_13_2.png" />
+<img alt="_images/j04_13_3.png" src="_images/j04_13_3.png" />
+</div>
+</div>
+<br>
+<p><strong>The PCs represent the temporal variability.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_PCA</span> <span class="o">=</span> <span class="n">plot_PCs</span><span class="p">(</span><span class="n">xds_PCA</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_15_0.png" src="_images/j04_15_0.png" />
+</div>
+</div>
+<p><br><br></p>
+</div>
+<div class="section" id="font-color-cornflowerblue-k-means-clustering-font-a-name-km-a">
+<h3><span class="section-number">4.1.2. </span><font color='cornflowerblue'><strong>K-means clustering</strong></font> <a name="km"></a><a class="headerlink" href="#font-color-cornflowerblue-k-means-clustering-font-a-name-km-a" title="Permalink to this headline">¶</a></h3>
+<p><strong>Daily synoptic patterns of the index predictor are obtained using the K-means clustering algorithm. It divides the data space into 49 clusters, a number that which must be a compromise between an easy handle characterization of the synoptic patterns and the best reproduction of the variability in the data space. Previous works with similar anlaysis confirmed that the selection of this number is adequate <a href="https://www.researchgate.net/profile/Christie-Hegermiller-2/publication/322103268_Multiscale_climate_emulator_of_multimodal_wave_spectra_MUSCLE-spectra/links/5a453d2aaca272d2945dacc2/Multiscale-climate-emulator-of-multimodal-wave-spectra-MUSCLE-spectra.pdf" target="_blank">(Rueda et al. 2017)</a>.</strong>
+<br></p>
+<p><strong>Each cluster is defined by a prototype and formed by the data for which the prototype is the nearest.</strong></p>
+<p><strong>Finally the best match unit (bmus) of daily clusters are reordered into a lattice following a geometric criteria, so that similar clusters are placed next to each other for a more intuitive visualization.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PCA data</span>
+<span class="n">variance</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">variance</span><span class="o">.</span><span class="n">values</span><span class="p">[:]</span>
+<span class="n">EOFs</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">EOFs</span><span class="o">.</span><span class="n">values</span><span class="p">[:]</span>
+<span class="n">PCs</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">PCs</span><span class="o">.</span><span class="n">values</span><span class="p">[:]</span>
+
+<span class="n">var_anom_std</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">pred_std</span><span class="o">.</span><span class="n">values</span><span class="p">[:]</span>
+<span class="n">var_anom_mean</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">pred_mean</span><span class="o">.</span><span class="n">values</span><span class="p">[:]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[:]</span>
+
+<span class="n">variance</span> <span class="o">=</span> <span class="n">xds_PCA</span><span class="o">.</span><span class="n">variance</span><span class="o">.</span><span class="n">values</span>
+<span class="n">percent</span> <span class="o">=</span> <span class="n">variance</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">percent_ac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">percent</span><span class="p">)</span>
+<span class="n">n_comp_95</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">percent_ac</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">n_comp_90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">percent_ac</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    
+<span class="c1"># plot</span>
+<span class="n">n_comp</span> <span class="o">=</span> <span class="n">n_comp_90</span>
+
+<span class="n">nterm</span> <span class="o">=</span> <span class="n">n_comp_90</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">#n_comp_90 es el número de PC que explican el 90% de la varianza, que en este caso son 237</span>
+<span class="n">PCsub</span> <span class="o">=</span> <span class="n">PCs</span><span class="p">[:,</span> <span class="p">:</span><span class="n">nterm</span><span class="p">]</span>
+<span class="n">EOFsub</span> <span class="o">=</span> <span class="n">EOFs</span><span class="p">[:</span><span class="n">nterm</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="c1"># normalization</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">PCsub</span>
+<span class="n">data_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xds_kma_ord</span><span class="p">,</span><span class="n">xds_kma</span> <span class="o">=</span> <span class="n">func_kma_order</span><span class="p">(</span><span class="n">path_p</span><span class="p">,</span><span class="n">xds_PCA</span><span class="p">,</span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kma order obtained:  [11 27 28 45 16 23 47 19  7 14  0 31 46 30 34 35 15  2  8 33 37 41  5 10
+ 48  4 40 21  3 20 42 29 38 26 32 43 13 17 18 39 25 22 44  9  1 24  6 12
+ 36]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xds_kma_sel</span> <span class="o">=</span> <span class="n">trmm_kma</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span><span class="n">xs_trmm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>The resulting classification can be seen in the PCs space of the predictor index data. The obtained centroids (black dots), span the wide variability of the data.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># CHECKUP PLOT 3D</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plot_3D_kmeans</span><span class="p">(</span><span class="n">xds_kma_ord</span><span class="p">,</span> <span class="n">xds_kma_ord</span><span class="o">.</span><span class="n">bmus</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">xds_kma_ord</span><span class="o">.</span><span class="n">cenEOFs</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">size_l</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">size_h</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_23_0.png" src="_images/j04_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plot_grid_kmeans</span><span class="p">(</span><span class="n">xds_kma_ord</span><span class="p">,</span> <span class="n">xds_kma_ord</span><span class="o">.</span><span class="n">bmus</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">xds_kma_ord</span><span class="o">.</span><span class="n">cenEOFs</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">ibmus</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">49</span><span class="p">),</span> <span class="n">size_l</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">size_h</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_24_0.png" src="_images/j04_24_0.png" />
+</div>
+</div>
+<br />
+</div>
+<div class="section" id="font-color-cornflowerblue-dwts-plotting-font-a-name-plot-a">
+<h3><span class="section-number">4.1.3. </span><font color='cornflowerblue'><strong>DWTs plotting</strong></font> <a name="plot"></a><a class="headerlink" href="#font-color-cornflowerblue-dwts-plotting-font-a-name-plot-a" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load</span>
+<span class="n">xds_kma</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;kma_model/xds_kma_index_vars_1b.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_st</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/&#39;</span>
+<span class="n">xds_ibtracs</span><span class="p">,</span> <span class="n">xds_SP</span> <span class="o">=</span> <span class="n">storms_sp</span><span class="p">(</span><span class="n">path_st</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All basins storms:  13481
+SP basin storms:    1130 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st_bmus</span><span class="p">,</span><span class="n">st_lons</span><span class="p">,</span><span class="n">st_lats</span><span class="p">,</span> <span class="n">st_categ</span> <span class="o">=</span> <span class="n">st_bmus</span><span class="p">(</span><span class="n">xds_SP</span><span class="p">,</span><span class="n">xds_kma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># custom colorbar for index</span>
+<span class="n">color_ls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span><span class="s1">&#39;darkseagreen&#39;</span><span class="p">,</span><span class="s1">&#39;olivedrab&#39;</span><span class="p">,</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span><span class="s1">&#39;orangered&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;deeppink&#39;</span><span class="p">,</span><span class="s1">&#39;violet&#39;</span><span class="p">,</span><span class="s1">&#39;darkorchid&#39;</span><span class="p">,</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span><span class="s1">&#39;midnightblue&#39;</span><span class="p">]</span>
+<span class="n">custom_cmap</span> <span class="o">=</span> <span class="n">custom_colorp</span><span class="p">(</span><span class="n">color_ls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>DWTs lattice and corresponding colors:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_dwt_lattice</span> <span class="o">=</span> <span class="n">Plot_dwts_colormap</span><span class="p">(</span><span class="n">xds_kma</span><span class="o">.</span><span class="n">n_clusters</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_31_0.png" src="_images/j04_31_0.png" />
+</div>
+</div>
+<br>
+<p><strong>The resulting clustering of the index predictor, each cell is the mean of all the patterns of the corresponding cluster:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_Mean_Anom</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="n">minis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">maxis</span><span class="o">=</span><span class="p">[</span><span class="mf">.85</span><span class="p">],</span><span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">color_ls</span><span class="p">)],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="n">cmap</span> <span class="o">=</span> <span class="p">[</span><span class="n">custom_cmap</span><span class="p">],</span><span class="n">genesis</span><span class="o">=</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="n">st_bmus</span><span class="o">=</span><span class="n">st_bmus</span><span class="p">,</span> 
+                          <span class="n">st_lons</span><span class="o">=</span><span class="n">st_lons</span><span class="p">,</span> <span class="n">st_lats</span><span class="o">=</span><span class="n">st_lats</span><span class="p">,</span> <span class="n">markercol</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">markeredge</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>index: min(0.0)  max(1.0)
+</pre></div>
+</div>
+<img alt="_images/j04_33_1.png" src="_images/j04_33_1.png" />
+</div>
+</div>
+<br>
+<p><strong>DWTs (index) total mean:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_totalmean</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="n">minis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">maxis</span><span class="o">=</span><span class="p">[</span><span class="mf">.85</span><span class="p">],</span><span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">color_ls</span><span class="p">)],</span><span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="n">custom_cmap</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>index: min(0.1)  max(0.7)
+</pre></div>
+</div>
+<img alt="_images/j04_35_1.png" src="_images/j04_35_1.png" />
+</div>
+</div>
+<br>
+<p><strong>DWTs (index) Anomalies:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_Mean_Anom</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="n">minis</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">.5</span><span class="p">],</span> <span class="n">maxis</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;anom&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">],</span> 
+                          <span class="n">genesis</span><span class="o">=</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="n">st_bmus</span><span class="o">=</span><span class="n">st_bmus</span><span class="p">,</span> <span class="n">st_lons</span><span class="o">=</span><span class="n">st_lons</span><span class="p">,</span> <span class="n">st_lats</span><span class="o">=</span><span class="n">st_lats</span><span class="p">,</span> <span class="n">markercol</span><span class="o">=</span><span class="s1">&#39;mediumspringgreen&#39;</span><span class="p">,</span> <span class="n">markeredge</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_37_0.png" src="_images/j04_37_0.png" />
+</div>
+</div>
+<br />
+<br />
+</div>
+<div class="section" id="font-color-cornflowerblue-cluster-homegeinity-font-a-name-ch-a">
+<h3><span class="section-number">4.1.4. </span><font color='cornflowerblue'><strong>Cluster homegeinity</strong></font> <a name="ch"></a><a class="headerlink" href="#font-color-cornflowerblue-cluster-homegeinity-font-a-name-ch-a" title="Permalink to this headline">¶</a></h3>
+<p><strong>The DWTs are different to each other, showing the high variability of the data space. The clusters are also very homogenous inside. This confirms 49 as a good choice, which additionally is a manageable number.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_41</span> <span class="o">=</span> <span class="n">plot_41</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">xds_kma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_40_0.png" src="_images/j04_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_5</span> <span class="o">=</span> <span class="n">plot_5</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">xds_kma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_41_0.png" src="_images/j04_41_0.png" />
+</div>
+</div>
+<br />
+<br />
+</div>
+<div class="section" id="font-color-cornflowerblue-dwts-plotting-with-predictand-variables-font-a-name-plotp-a">
+<h3><span class="section-number">4.1.5. </span><font color='cornflowerblue'><strong>DWTs plotting with predictand variables</strong></font> <a name="plotp"></a><a class="headerlink" href="#font-color-cornflowerblue-dwts-plotting-with-predictand-variables-font-a-name-plotp-a" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_Mean_Anom</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sst&#39;</span><span class="p">,</span> <span class="s1">&#39;dbss&#39;</span><span class="p">],</span> <span class="n">minis</span><span class="o">=</span><span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">maxis</span><span class="o">=</span><span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="p">[(</span><span class="mi">32</span><span class="o">-</span><span class="mi">22</span><span class="p">)</span><span class="o">/</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> 
+                          <span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="n">colorp</span><span class="p">(),</span> <span class="s1">&#39;seismic&#39;</span><span class="p">],</span> <span class="n">genesis</span><span class="o">=</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="n">st_bmus</span><span class="o">=</span><span class="n">st_bmus</span><span class="p">,</span> <span class="n">st_lons</span><span class="o">=</span><span class="n">st_lons</span><span class="p">,</span> <span class="n">st_lats</span><span class="o">=</span><span class="n">st_lats</span><span class="p">,</span> <span class="n">markercol</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">markeredge</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sst: min(14.899999618530273)  max(33.0)
+dbss: min(7.5)  max(330.0)
+</pre></div>
+</div>
+<img alt="_images/j04_43_1.png" src="_images/j04_43_1.png" />
+</div>
+</div>
+<br>
+<p><strong>DWTs - SST and MLD total mean:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_totalmean</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sst&#39;</span><span class="p">,</span><span class="s1">&#39;dbss&#39;</span><span class="p">],</span> <span class="n">minis</span><span class="o">=</span><span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">maxis</span><span class="o">=</span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">200</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="p">[(</span><span class="mi">32</span><span class="o">-</span><span class="mi">22</span><span class="p">)</span><span class="o">/</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span>  <span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="n">colorp</span><span class="p">(),</span><span class="s1">&#39;seismic&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sst: min(20.299999237060547)  max(29.5)
+dbss: min(46.20000076293945)  max(120.0)
+</pre></div>
+</div>
+<img alt="_images/j04_45_1.png" src="_images/j04_45_1.png" />
+</div>
+</div>
+<br>
+<br>
+<p><strong>DWTs - SST and MLD Anomalies:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_Mean_Anom</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sst&#39;</span><span class="p">,</span> <span class="s1">&#39;dbss&#39;</span><span class="p">],</span> <span class="n">minis</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">],</span> <span class="n">maxis</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;anom&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="s1">&#39;seismic&#39;</span><span class="p">],</span> <span class="n">genesis</span><span class="o">=</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> 
+                          <span class="n">st_bmus</span><span class="o">=</span><span class="n">st_bmus</span><span class="p">,</span> <span class="n">st_lons</span><span class="o">=</span><span class="n">st_lons</span><span class="p">,</span> <span class="n">st_lats</span><span class="o">=</span><span class="n">st_lats</span><span class="p">,</span> <span class="n">markercol</span><span class="o">=</span><span class="s1">&#39;mediumspringgreen&#39;</span><span class="p">,</span> <span class="n">markeredge</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_47_0.png" src="_images/j04_47_0.png" />
+</div>
+</div>
+<br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>Clear patterns can be extracted from these figures related to TCs genesis. Most of it takes place under the following conditions:</strong></p>
+<ul class="simple">
+<li><p>SST interval from 28ºC to 30ºC (specially 28.5 to 29.5 ºC) that correspond to positive or zero SST anomalies.<br></p></li>
+<li><p>MLD values equal or smaller to 75 m that correspond to negative anomalies.</p></li>
+</ul>
+</div><br />
+<br />
+</div>
+</div>
+<div class="section" id="font-color-royalblue-dwts-seasonality-annual-variability-and-chronology-font-a-name-chrono-a">
+<h2><span class="section-number">4.2. </span><font color='royalblue'><strong>DWTs seasonality, annual variability and chronology</strong></font> <a name="chrono"></a><a class="headerlink" href="#font-color-royalblue-dwts-seasonality-annual-variability-and-chronology-font-a-name-chrono-a" title="Permalink to this headline">¶</a></h2>
+<p><strong>Several plots are shown to better analyse the distribution of DWTs, their transition, persistence and conditioning to TCs occurrence and to AWT.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_mjo_awt</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/STORMS_VIEWER/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">awt</span><span class="p">,</span><span class="n">mjo</span><span class="p">,</span><span class="n">awt0</span> <span class="o">=</span> <span class="n">awt_mjo_ds</span><span class="p">(</span><span class="n">path_mjo_awt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>Seasonality:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bmus_DWT</span><span class="p">,</span> <span class="n">bmus_time</span><span class="p">,</span><span class="n">awt0_sel_bmus</span><span class="p">,</span><span class="n">bmus_AWT</span><span class="p">,</span><span class="n">bmus_MJO</span> <span class="o">=</span> <span class="n">bmus_dwt_mjo</span><span class="p">(</span><span class="n">mjo</span><span class="p">,</span><span class="n">awt</span><span class="p">,</span><span class="n">awt0</span><span class="p">,</span><span class="n">xds_kma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TCs genesis according to month:</strong>
+<br></p>
+<p><img alt="TITLE" src="_images/st0.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_Probs</span><span class="p">(</span><span class="n">bmus_DWT</span><span class="p">,</span> <span class="n">bmus_time</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_56_0.png" src="_images/j04_56_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#all categories</span>
+<span class="n">xs_dwt_counts</span> <span class="o">=</span> <span class="n">dwt_tcs_count_tracks</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">lo0</span><span class="o">=</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lo1</span><span class="o">=</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">la0</span><span class="o">=</span><span class="n">la_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">la1</span><span class="o">=</span><span class="n">la_area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">xs_dwt_counts</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/seasonal/seasonal_forecast/new/kma_model/xds_count_tcs8.nc&#39;</span><span class="p">)</span>
+
+<span class="c1">#category 3 </span>
+<span class="n">xs_dwt_counts_964</span> <span class="o">=</span> <span class="n">dwt_tcs_count_tracks</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">categ</span><span class="o">=</span><span class="mi">965</span><span class="p">,</span><span class="n">lo0</span><span class="o">=</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lo1</span><span class="o">=</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">la0</span><span class="o">=</span><span class="n">la_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">la1</span><span class="o">=</span><span class="n">la_area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">xs_dwt_counts_964</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/seasonal/seasonal_forecast/new/kma_model/xds_count_tcs8_964.nc&#39;</span><span class="p">)</span>
+
+<span class="c1"># category 2</span>
+<span class="n">xs_dwt_counts_979</span> <span class="o">=</span> <span class="n">dwt_tcs_count_tracks</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">categ</span><span class="o">=</span><span class="mi">979</span><span class="p">,</span><span class="n">lo0</span><span class="o">=</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lo1</span><span class="o">=</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">la0</span><span class="o">=</span><span class="n">la_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">la1</span><span class="o">=</span><span class="n">la_area</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">xs_dwt_counts_979</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/seasonal/seasonal_forecast/new/kma_model/xds_count_tcs8_979.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs_dwt_counts</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;kma_model/xds_count_tcs8.nc&#39;</span><span class="p">)</span>
+<span class="n">xs_dwt_counts_964</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;kma_model/xds_count_tcs8_964.nc&#39;</span><span class="p">)</span>
+<span class="n">xs_dwt_counts_979</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;kma_model/xds_count_tcs8_979.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xds_timeline</span> <span class="o">=</span> <span class="n">ds_timeline</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">xs_dwt_counts</span><span class="p">,</span><span class="n">xs_dwt_counts_964</span><span class="p">,</span><span class="n">xds_kma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask_bmus_YD</span><span class="p">,</span> <span class="n">mask_tcs_YD</span> <span class="o">=</span> <span class="n">variables_dwt_super_plot</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xds_timeline</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>AWT transferred to the DWTs:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_clusters_AWT</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">n_clusters_DWT</span> <span class="o">=</span> <span class="mi">49</span>
+<span class="n">n_clusters_MJO</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_Probs_WT_WT</span><span class="p">(</span><span class="n">bmus_AWT</span><span class="p">,</span> <span class="n">bmus_DWT</span><span class="p">,</span> <span class="n">n_clusters_AWT</span><span class="p">,</span> <span class="n">n_clusters_DWT</span><span class="p">,</span> <span class="n">ttl</span> <span class="o">=</span> <span class="s1">&#39;DWT/AWT&#39;</span><span class="p">,</span><span class="n">height</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">wt_colors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_62_0.png" src="_images/j04_62_0.png" />
+</div>
+</div>
+<p><strong>Chronology</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Report_Sim</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">py_month_ini</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_64_0.png" src="_images/j04_64_0.png" />
+</div>
+</div>
+<br> 
+<p><strong>Chronology during all the calibration period, with the AWT on the left and the TC days included as black dots:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Chrono_dwts_tcs</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">mask_bmus_YD</span><span class="p">,</span> <span class="n">mask_tcs_YD</span><span class="p">,</span> <span class="n">awt0_sel_bmus</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_66_0.png" src="_images/j04_66_0.png" />
+</div>
+</div>
+<br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>During the TC season months (November, December, January, February, March and April) the DWTs proability is focused on the upper half of the upper part of the lattice, where most of the TC genesis is also concentrated. In the most intense months (January, February and March) DWTs with the highest number of TCs genesis points are especially likely. On the contrary, in the rest of the months, the probability is shared amongst the DWTs of the lower half of the lattice, where there is very few or null TC genesis activity.</strong></p>
+</div><br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>Intra annual variability:</strong></p>
+<ul class="simple">
+<li><p>Months out of the TCs season: purple, pink, gray and blue -&gt; DWTs from 29 to 49 -&gt; low or null TCs genesis activity.<br></p></li>
+<li><p>Months out of the TCs season: green, orange, red, yellow -&gt; DWTs from 1 to 28 -&gt; high TCs genesis acitvity.</p></li>
+</ul>
+</div><br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>Interanual varibility:</strong></p>
+<ul class="simple">
+<li><p><strong>El Niño</strong>: not much variability, high TC activity (DWTs like 6 or 18 are very probable), 1997 is the year when the season starts earlier (October) and ends later (June)</p></li>
+<li><p>Other factors influences such as long-terms trends, maybe associated to SST warming during this time period.</p></li>
+</ul>
+</div><br />
+<br />
+<br />
+</div>
+<div class="section" id="font-color-royalblue-relationship-predictor-predictand-font-a-name-pp-a">
+<h2><span class="section-number">4.3. </span><font color='royalblue'><strong>Relationship predictor-predictand</strong></font> <a name="pp"></a><a class="headerlink" href="#font-color-royalblue-relationship-predictor-predictand-font-a-name-pp-a" title="Permalink to this headline">¶</a></h2>
+<br><div class="section" id="font-color-cornflowerblue-dwts-storm-frequency-and-track-counting-font-a-name-count-a">
+<h3><span class="section-number">4.3.1. </span><font color='cornflowerblue'><strong>DWTs storm frequency and track counting</strong></font> <a name="count"></a><a class="headerlink" href="#font-color-cornflowerblue-dwts-storm-frequency-and-track-counting-font-a-name-count-a" title="Permalink to this headline">¶</a></h3>
+<br /><p><strong>DWTs - TCs tracks according to genesis</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_tracks</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">st_bmus</span><span class="p">,</span> <span class="n">st_lons</span><span class="p">,</span> <span class="n">st_lats</span><span class="p">,</span> <span class="n">st_categ</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;genesis&#39;</span><span class="p">,</span> <span class="n">cocean</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_73_0.png" src="_images/j04_73_0.png" />
+</div>
+</div>
+<br>
+<p><strong>DWTs - TCs tracks segments</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">Plot_DWTs_tracks</span><span class="p">(</span><span class="n">xds_kma</span><span class="p">,</span> <span class="n">xs</span><span class="p">,</span> <span class="n">st_bmus</span><span class="p">,</span> <span class="n">st_lons</span><span class="p">,</span> <span class="n">st_lats</span><span class="p">,</span> <span class="n">st_categ</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;segments&#39;</span><span class="p">,</span> <span class="n">cocean</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_75_0.png" src="_images/j04_75_0.png" />
+</div>
+</div>
+<br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>Considering only the genesis point as the transfer criteria to the DWTs make us miss some important information since the TCs tracks develop along many days, during which the DWT can change.</strong></p>
+</div><p><strong>The predictor area is discretized in <u>squared 8º cells</u> to compute the storm frequency per DWT.</strong></p>
+<p><strong>Absolute number of TCs per DWT:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_8</span> <span class="o">=</span> <span class="n">Plot_DWTs_counts</span><span class="p">(</span><span class="n">xs_dwt_counts</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;counts_tcs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>counts_tcs: min(1.0)  max(13.0)
+</pre></div>
+</div>
+<img alt="_images/j04_79_1.png" src="_images/j04_79_1.png" />
+</div>
+</div>
+<br>
+<p><strong>Absolute number of TCs reaching category 2 or greater per DWT:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_8</span> <span class="o">=</span> <span class="n">Plot_DWTs_counts</span><span class="p">(</span><span class="n">xs_dwt_counts_979</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;counts_tcs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>counts_tcs: min(1.0)  max(8.0)
+</pre></div>
+</div>
+<img alt="_images/j04_81_1.png" src="_images/j04_81_1.png" />
+</div>
+</div>
+<br>
+<p><strong>Number of TCs per day conditioned to each DWT, with DWT probability as background color:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_8</span> <span class="o">=</span> <span class="n">Plot_DWTs_counts</span><span class="p">(</span><span class="n">xs_dwt_counts</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;tcs_dwts&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tcs_dwts: min(0.002403846153846154)  max(0.037142857142857144)
+</pre></div>
+</div>
+<img alt="_images/j04_83_1.png" src="_images/j04_83_1.png" />
+</div>
+</div>
+<br>
+<p><strong>Number of TCs reaching category 2 or greater per day conditioned to each DWT, with DWT probability as background color:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_8</span> <span class="o">=</span> <span class="n">Plot_DWTs_counts</span><span class="p">(</span><span class="n">xs_dwt_counts_979</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;tcs_dwts&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tcs_dwts: min(0.0024096385542168677)  max(0.022857142857142857)
+</pre></div>
+</div>
+<img alt="_images/j04_85_1.png" src="_images/j04_85_1.png" />
+</div>
+</div>
+<br />
+<br />
+</div>
+<div class="section" id="font-color-cornflowerblue-calibration-time-period-predictand-plotting-font-a-name-cali-a">
+<h3><span class="section-number">4.3.2. </span><font color='cornflowerblue'><strong>Calibration time period predictand plotting</strong></font> <a name="cali"></a><a class="headerlink" href="#font-color-cornflowerblue-calibration-time-period-predictand-plotting-font-a-name-cali-a" title="Permalink to this headline">¶</a></h3>
+<br><div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>Recall:</strong></p>
+<ul class="simple">
+<li><p>Generation of the index predictor.</p></li>
+<li><p>Clustering of the index predictor in 49 synoptic patterns named DWTs.</p></li>
+<li><p>Calculation of the number of TCs per day conditioned to each DWT in 8x8º cells in the target area.</p></li>
+</ul>
+<p><strong>Each day of the calibration period has therefore its <u>expected number of TCs map.</u></strong></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xds_timeline</span> <span class="o">=</span> <span class="n">ds_timeline</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">xs_dwt_counts</span><span class="p">,</span><span class="n">xs_dwt_counts_964</span><span class="p">,</span><span class="n">xds_kma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<p><strong>This mean expected daily number of TCs in 8x8º cells is aggregated in monthly basis for an easy management and visualization.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># resample months</span>
+<span class="n">xds_timeM0</span> <span class="o">=</span> <span class="n">xds_timeline</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;MS&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">xds_timeM0</span><span class="p">[</span><span class="s1">&#39;bmus&#39;</span><span class="p">]</span>
+<span class="n">xds_timeM</span> <span class="o">=</span> <span class="n">xds_timeM0</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xds_timeM0</span><span class="o">.</span><span class="n">probs_tcs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="c1">#xds_timeM.to_netcdf(path_p+&#39;xds_timeM8.nc&#39;)</span>
+<span class="n">xds_timeM</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:         (lat: 5, lon: 8, time: 456)
+Coordinates:
+  * time            (time) datetime64[ns] 1982-01-01 1982-02-01 ... 2019-12-01
+  * lat             (lat) int64 -30 -22 -14 -6 2
+  * lon             (lon) int64 160 168 176 184 192 200 208 216
+Data variables:
+    mask_tcs        (time, lat, lon) float64 8.0 8.0 8.0 8.0 ... nan nan nan nan
+    counts_tcs      (time, lat, lon) float64 99.0 100.0 120.0 ... nan nan nan
+    counts_tcs_964  (time, lat, lon) float64 10.0 19.0 22.0 17.0 ... nan nan nan
+    probs_tcs       (time, lat, lon) float64 0.3036 0.3154 0.3822 ... nan nan
+    probs_tcs_964   (time, lat, lon) float64 0.02865 0.05969 0.07171 ... nan nan</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-463a700b-1ddc-49a1-9e66-bde6cbbdb81e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-463a700b-1ddc-49a1-9e66-bde6cbbdb81e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 5</li><li><span class='xr-has-index'>lon</span>: 8</li><li><span class='xr-has-index'>time</span>: 456</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-03f08746-8cc1-4bdc-891b-713a7e8e67ba' class='xr-section-summary-in' type='checkbox'  checked><label for='section-03f08746-8cc1-4bdc-891b-713a7e8e67ba' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1982-01-01 ... 2019-12-01</div><input id='attrs-3cfbac4e-7a43-4595-86b7-7a4a9f2d4ddd' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3cfbac4e-7a43-4595-86b7-7a4a9f2d4ddd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dce3b7d2-1f23-4d78-90b3-19f6e266e1f7' class='xr-var-data-in' type='checkbox'><label for='data-dce3b7d2-1f23-4d78-90b3-19f6e266e1f7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1982-01-01T00:00:00.000000000&#x27;, &#x27;1982-02-01T00:00:00.000000000&#x27;,
+       &#x27;1982-03-01T00:00:00.000000000&#x27;, ..., &#x27;2019-10-01T00:00:00.000000000&#x27;,
+       &#x27;2019-11-01T00:00:00.000000000&#x27;, &#x27;2019-12-01T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>-30 -22 -14 -6 2</div><input id='attrs-c08e9a9d-8dd3-483f-8958-414564ca093a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c08e9a9d-8dd3-483f-8958-414564ca093a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a5db395e-8df1-4216-ac8a-db74eefbcd0f' class='xr-var-data-in' type='checkbox'><label for='data-a5db395e-8df1-4216-ac8a-db74eefbcd0f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-30, -22, -14,  -6,   2])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>160 168 176 184 192 200 208 216</div><input id='attrs-52482567-7956-4e07-9487-c5bdcc1b1ef8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-52482567-7956-4e07-9487-c5bdcc1b1ef8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cf39a92a-3293-4588-8ec9-161713d97d43' class='xr-var-data-in' type='checkbox'><label for='data-cf39a92a-3293-4588-8ec9-161713d97d43' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([160, 168, 176, 184, 192, 200, 208, 216])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ecce5f8a-c070-4a34-9e46-2b055e52f38f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ecce5f8a-c070-4a34-9e46-2b055e52f38f' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>mask_tcs</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>8.0 8.0 8.0 8.0 ... nan nan nan nan</div><input id='attrs-870671d3-4e42-47b0-91e7-e97930bb91f4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-870671d3-4e42-47b0-91e7-e97930bb91f4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-51a9c2bf-ae4e-41ed-9547-c3d61e01cdf6' class='xr-var-data-in' type='checkbox'><label for='data-51a9c2bf-ae4e-41ed-9547-c3d61e01cdf6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 8.,  8.,  8., ...,  8.,  8., nan],
+        [ 8.,  8.,  8., ...,  8.,  8., nan],
+        [ 8.,  8.,  8., ...,  8., nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[ 9.,  9.,  9., ...,  9.,  9., nan],
+        [ 9.,  9.,  9., ...,  9.,  9., nan],
+        [ 9.,  9.,  9., ...,  9., nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[ 4.,  4.,  4., ...,  4.,  4., nan],
+        [ 4.,  4.,  4., ...,  4.,  4., nan],
+        [ 4.,  4.,  4., ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       ...,
+
+       [[nan, nan, nan, ..., nan, nan, nan],
+        [nan,  0., nan, ..., nan,  0., nan],
+        [ 0.,  0., nan, ..., nan,  0., nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[nan, nan, nan, ..., nan, nan, nan],
+        [nan,  3., nan, ..., nan,  3., nan],
+        [nan,  3., nan, ..., nan,  3., nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]],
+
+       [[ 6., nan, nan, ...,  6.,  6., nan],
+        [ 6.,  6.,  6., ...,  6.,  6., nan],
+        [nan,  6.,  6., ..., nan,  6., nan],
+        [nan, nan, nan, ..., nan, nan, nan],
+        [nan, nan, nan, ..., nan, nan, nan]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>counts_tcs</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>99.0 100.0 120.0 ... nan nan nan</div><input id='attrs-0c99b1a1-cf52-4a54-afc4-5255d8e01375' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0c99b1a1-cf52-4a54-afc4-5255d8e01375' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7d70aa85-8530-4acf-9fdb-8f06a1ca7934' class='xr-var-data-in' type='checkbox'><label for='data-7d70aa85-8530-4acf-9fdb-8f06a1ca7934' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 99., 100., 120., ...,  53.,  13.,  nan],
+        [173., 149., 103., ...,  38.,  23.,  nan],
+        [ 27.,  34.,  45., ...,  18.,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[123., 142., 188., ...,  76.,   3.,  nan],
+        [249., 216., 138., ...,  41.,  32.,  nan],
+        [ 34.,  31.,  46., ...,   6.,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[120., 176., 198., ...,  56.,   7.,  nan],
+        [202., 218., 132., ...,  29.,  18.,  nan],
+        [ 64.,  58.,  30., ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       ...,
+
+       [[ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,   6.,  nan, ...,  nan,   6.,  nan],
+        [ 18.,   6.,  nan, ...,  nan,   6.,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  30.,  nan, ...,  nan,  30.,  nan],
+        [ nan,  30.,  nan, ...,  nan,  30.,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[ 26.,  nan,  nan, ...,  13.,  13.,  nan],
+        [ 26.,  31.,  26., ...,  13.,  18.,  nan],
+        [ nan,  57.,  39., ...,  nan,  18.,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>counts_tcs_964</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>10.0 19.0 22.0 17.0 ... nan nan nan</div><input id='attrs-7c6c288c-0f8f-4bf6-a792-b9edbe58fb61' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7c6c288c-0f8f-4bf6-a792-b9edbe58fb61' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4308f3af-5718-4361-b717-ec1ebca5c426' class='xr-var-data-in' type='checkbox'><label for='data-4308f3af-5718-4361-b717-ec1ebca5c426' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[ 10.,  19.,  22., ...,   9.,   0.,  nan],
+        [ 54.,  59.,  34., ...,   9.,   5.,  nan],
+        [  5.,   0.,   9., ...,   4.,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[ 18.,  40.,  38., ...,  19.,   0.,  nan],
+        [103., 113.,  41., ...,   0.,   0.,  nan],
+        [  3.,   0.,  16., ...,   0.,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[ 30.,  39.,  40., ...,  16.,   0.,  nan],
+        [107.,  88.,  45., ...,   0.,   0.,  nan],
+        [ 20.,  13.,   9., ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       ...,
+
+       [[ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,   0.,  nan, ...,  nan,   0.,  nan],
+        [  0.,   0.,  nan, ...,  nan,   0.,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,   0.,  nan, ...,  nan,   0.,  nan],
+        [ nan,   0.,  nan, ...,  nan,   0.,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]],
+
+       [[ 13.,  nan,  nan, ...,  13.,   0.,  nan],
+        [ 13.,   0.,   0., ...,  13.,   0.,  nan],
+        [ nan,  13.,  13., ...,  nan,   0.,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan],
+        [ nan,  nan,  nan, ...,  nan,  nan,  nan]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>probs_tcs</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.3036 0.3154 0.3822 ... nan nan</div><input id='attrs-712bc67d-038c-495d-9c9c-97d1751ba4fb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-712bc67d-038c-495d-9c9c-97d1751ba4fb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ccb2fcf6-99b6-4491-8d16-6e1b8319d802' class='xr-var-data-in' type='checkbox'><label for='data-ccb2fcf6-99b6-4491-8d16-6e1b8319d802' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0.30361407, 0.31537145, 0.38216615, ..., 0.17685686,
+         0.03210038,        nan],
+        [0.56037088, 0.49913566, 0.33612808, ..., 0.1163688 ,
+         0.07489223,        nan],
+        [0.08693813, 0.11571248, 0.14755048, ..., 0.0479304 ,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan]],
+
+       [[0.3821756 , 0.4469584 , 0.61612124, ..., 0.25601433,
+         0.00857143,        nan],
+        [0.80105141, 0.70666745, 0.45373013, ..., 0.13610823,
+         0.11034483,        nan],
+        [0.10660099, 0.09807868, 0.14254338, ..., 0.01719198,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+...
+                nan,        nan],
+        [       nan, 0.15789474,        nan, ...,        nan,
+         0.15789474,        nan],
+        [       nan, 0.15789474,        nan, ...,        nan,
+         0.15789474,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan]],
+
+       [[0.11607143,        nan,        nan, ..., 0.05803571,
+         0.05803571,        nan],
+        [0.11607143, 0.15277256, 0.11607143, ..., 0.05803571,
+         0.09473684,        nan],
+        [       nan, 0.26884398, 0.17410714, ...,        nan,
+         0.09473684,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>probs_tcs_964</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.02865 0.05969 0.07171 ... nan nan</div><input id='attrs-b03c0572-123f-4610-8fe8-7055420b08a6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b03c0572-123f-4610-8fe8-7055420b08a6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c77a545d-4a48-485f-9bf1-c90f8d1827e6' class='xr-var-data-in' type='checkbox'><label for='data-c77a545d-4a48-485f-9bf1-c90f8d1827e6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[0.0286533 , 0.05968778, 0.07170752, ..., 0.03103448,
+         0.        ,        nan],
+        [0.17206833, 0.20444427, 0.12258319, ..., 0.02246182,
+         0.01282327,        nan],
+        [0.01282327, 0.        , 0.03103448, ..., 0.00963855,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan]],
+
+       [[0.05147769, 0.12483192, 0.12800717, ..., 0.06374384,
+         0.        ,        nan],
+        [0.33372579, 0.37279431, 0.13657859, ..., 0.        ,
+         0.        ,        nan],
+        [0.00857143, 0.        , 0.05517241, ..., 0.        ,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+...
+                nan,        nan],
+        [       nan, 0.        ,        nan, ...,        nan,
+         0.        ,        nan],
+        [       nan, 0.        ,        nan, ...,        nan,
+         0.        ,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan]],
+
+       [[0.05803571,        nan,        nan, ..., 0.05803571,
+         0.        ,        nan],
+        [0.05803571, 0.        , 0.        , ..., 0.05803571,
+         0.        ,        nan],
+        [       nan, 0.05803571, 0.05803571, ...,        nan,
+         0.        ,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan],
+        [       nan,        nan,        nan, ...,        nan,
+                nan,        nan]]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bf79dfb6-bd95-4f85-8f5e-f9fd7122f5bb' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bf79dfb6-bd95-4f85-8f5e-f9fd7122f5bb' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<br>
+<p><strong>Expected mean number of TCs in 8x8º cells in the target area for the calibration time period (1982-2019), including the historical TC tracks:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_cali_8</span> <span class="o">=</span> <span class="n">plot_calibration_period</span><span class="p">(</span><span class="n">xds_timeM</span><span class="p">,</span><span class="n">xds_timeline</span><span class="p">,</span><span class="n">df</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_92_0.png" src="_images/j04_92_0.png" />
+</div>
+</div>
+<br>
+<p><strong>Expected number of TCs reaching category 3 or greater in 8x8º cells in the target area for the calibration time period (1982-2019), including the historical TC tracks:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_cali_8</span> <span class="o">=</span> <span class="n">plot_calibration_period_cat3</span><span class="p">(</span><span class="n">xds_timeM</span><span class="p">,</span><span class="n">xds_timeline</span><span class="p">,</span><span class="n">df</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_94_0.png" src="_images/j04_94_0.png" />
+</div>
+</div>
+<br>
+<p><strong>Expected number of TCs in 8x8º cells in the target area for year 2015 (El Niño) of the calibration time period (1982-2019) including the historical TC tracks coloured according to their category:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_year_8</span> <span class="o">=</span> <span class="n">plot_cali_year</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span><span class="n">xds_timeline</span><span class="p">,</span><span class="n">xds_timeM</span><span class="p">,</span><span class="n">df</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j04_96_0.png" src="_images/j04_96_0.png" />
+</div>
+</div>
+<br>
+<br>
+<div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<ul class="simple">
+<li><p><strong>The model generally performs very well since it effectively and accuretly estimates the TC activity (quantity and intensity of TCs).</strong></p></li>
+<li><p><strong>In some zones (depending on the month) the model overstimates the number of TCs since rather than predicting the exact path followed by the TC track it predicts the track and its area of infuence (surroundings).</strong></p></li>
+<li><p><strong>When a TC is very intense or very close in dates to the previous or following month it leaves its footprint (like Pam from 07/03/2015 in February).</strong></p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="j03.html" title="previous page"><span class="section-number">3. </span><font color='navy'><strong>Index Predictor Definition and Building</strong> </font></a>
+    <a class='right-next' id="next-link" href="j05.html" title="next page"><span class="section-number">5. </span><font color='navy'><strong>Additional Predictand Variables</strong> </font></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By GeoOcean<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

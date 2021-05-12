@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Index Predictor Definition and Building</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Statistical Downscaling Method" href="j04.html" />
+    <link rel="prev" title="2. Large Scale Predictors" href="j02.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logobm.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="j00pp.html">
+   <font color="navy">
+    Seasonal Forecast of Tropical Cyclone Activity in the South Pacific Ocean
+   </font>
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="j01.html">
+   1.
+   <font color="navy">
+    <strong>
+     Databases
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j02.html">
+   2.
+   <font color="navy">
+    <strong>
+     Large Scale Predictors
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3.
+   <font color="navy">
+    <strong>
+     Index Predictor Definition and Building
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j04.html">
+   4.
+   <font color="navy">
+    <strong>
+     Statistical Downscaling Method
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j05.html">
+   5.
+   <font color="navy">
+    <strong>
+     Additional Predictand Variables
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j06.html">
+   6.
+   <font color="navy">
+    <strong>
+     Model Validation
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="j07.html">
+   7.
+   <font color="navy">
+    <strong>
+     Seasonal Forecast
+    </strong>
+   </font>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/j03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/AndreaPozo/Seasonal_Forecast_TCs_book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/AndreaPozo/Seasonal_Forecast_TCs_book/issues/new?title=Issue%20on%20page%20%2Fj03.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/AndreaPozo/Seasonal_Forecast_TCs_book/master?urlpath=tree/full_version/j03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-spatial-and-temporal-domain-font-a-name-domain-a">
+   3.1.
+   <font color="royalblue">
+    <strong>
+     Spatial and temporal domain
+    </strong>
+   </font>
+   <a name="domain">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-predictor-grid-and-data-processing-font-a-name-pg-a">
+   3.2.
+   <font color="royalblue">
+    <strong>
+     Predictor grid and data processing
+    </strong>
+   </font>
+   <a name="pg">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-royalblue-index-definition-and-computation-font-a-name-dc-a">
+   3.3.
+   <font color="royalblue">
+    <strong>
+     Index definition and computation
+    </strong>
+   </font>
+   <a name="dc">
+   </a>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># basic</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># common</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c1">#lib</span>
+<span class="kn">from</span> <span class="nn">lib.plots_base</span> <span class="kn">import</span> <span class="n">basemap_ibtracs</span><span class="p">,</span> <span class="n">basemap_var</span><span class="p">,</span> <span class="n">basemap_scatter</span><span class="p">,</span> <span class="n">axplot_basemap</span><span class="p">,</span> <span class="n">basemap_scatter_both</span><span class="p">,</span> <span class="n">plot_target_area</span><span class="p">,</span><span class="n">plot_predictor_grid</span>
+<span class="kn">from</span> <span class="nn">lib.plots_tcs</span> <span class="kn">import</span> <span class="n">get_storm_color</span><span class="p">,</span> <span class="n">get_category</span><span class="p">,</span> <span class="n">Plot_DWTs_tracks</span>
+<span class="kn">from</span> <span class="nn">lib.plots_aux</span> <span class="kn">import</span> <span class="n">data_to_discret</span><span class="p">,</span> <span class="n">colors_dwt</span>
+<span class="kn">from</span> <span class="nn">lib.extract_tcs</span> <span class="kn">import</span> <span class="n">Extract_Rectangle</span><span class="p">,</span> <span class="n">dwt_tcs_count</span>
+<span class="kn">from</span> <span class="nn">lib.predictor_definition_building</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="section" id="font-color-navy-index-predictor-definition-and-building-font">
+<h1><span class="section-number">3. </span><font color='navy'><strong>Index Predictor Definition and Building</strong> </font><a class="headerlink" href="#font-color-navy-index-predictor-definition-and-building-font" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><a class="reference external" href="#domain">Spatial and temporal domain </a> <br> <br>
+<a class="reference external" href="#pg">Predictor grid and data processing</a> <br> <br>
+<a class="reference external" href="#dc">Index definition and computation</a><br> <br><br></p>
+</div></blockquote>
+<br>
+<div class="section" id="font-color-royalblue-spatial-and-temporal-domain-font-a-name-domain-a">
+<h2><span class="section-number">3.1. </span><font color='royalblue'><strong>Spatial and temporal domain</strong></font> <a name="domain"></a><a class="headerlink" href="#font-color-royalblue-spatial-and-temporal-domain-font-a-name-domain-a" title="Permalink to this headline">¶</a></h2>
+<p><strong>The predictor area spans around the islands of Tonga, Samoa and Fiji, from latitude 0º to 30º and from longitude 160º to 210º; far enough to be able to identify regional as well as local patterns. The calibration period (time domain) is defined from 1982 to 2019.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ibtracs v4 dictionary</span>
+<span class="n">d_vns</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="s1">&#39;wmo_pres&#39;</span><span class="p">,}</span>
+
+<span class="n">lo_SP</span><span class="p">,</span> <span class="n">la_SP</span> <span class="o">=</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span><span class="mi">250</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># predictor area</span>
+<span class="n">lo_area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">210</span><span class="p">]</span>
+<span class="n">la_area</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_target_area</span> <span class="o">=</span> <span class="n">plot_target_area</span><span class="p">(</span><span class="n">rectangle</span><span class="o">=</span><span class="p">[</span><span class="n">lo_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lo_area</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">la_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">la_area</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j03_6_0.png" src="_images/j03_6_0.png" />
+</div>
+</div>
+<p><strong>The variables required for the methodology are downloaded from the databases:</strong></p>
+<ul class="simple">
+<li><p><strong>Predictand</strong>: Tropical cyclones tracks from IBTrACs, for the minimum pressure point.</p></li>
+<li><p><strong>Predictor</strong>: NOAA 1/4º daily Optimum Interpolation Sea Surface Temperature (SST) and Mixed Layer Depth (MLD) from the NCEP Climate Forecast System Reanalysis (CFSR).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_st</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/&#39;</span>
+<span class="n">xds_ibtracs</span><span class="p">,</span> <span class="n">xds_SP</span> <span class="o">=</span> <span class="n">storms_sp</span><span class="p">(</span><span class="n">path_st</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All basins storms:  13481
+SP basin storms:    1130 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ibtracs v4 dictionary</span>
+<span class="n">d_vns</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="s1">&#39;wmo_pres&#39;</span><span class="p">,}</span>
+
+<span class="n">lo_SP</span><span class="p">,</span> <span class="n">la_SP</span> <span class="o">=</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span><span class="mi">250</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># predictor area</span>
+<span class="n">lo_area</span> <span class="o">=</span> <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">210</span><span class="p">]</span>
+<span class="n">la_area</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract rectangle, 772 a 780</span>
+<span class="n">TCs_rect_hist_tracks</span> <span class="o">=</span> <span class="n">Extract_Rectangle</span><span class="p">(</span><span class="n">xds_SP</span><span class="p">,</span> <span class="n">lo_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lo_area</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">la_area</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">la_area</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">d_vns</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df0</span> <span class="o">=</span> <span class="n">df_pressures</span><span class="p">(</span><span class="n">xds_ibtracs</span><span class="p">)</span>
+<span class="n">df0</span><span class="p">[</span><span class="mi">6000</span><span class="p">:</span><span class="mi">6010</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>st</th>
+      <th>time</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>pres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6000</th>
+      <td>9833</td>
+      <td>1987-02-12 12:00:00.000040448</td>
+      <td>139.125000</td>
+      <td>-15.225000</td>
+      <td>970.0</td>
+    </tr>
+    <tr>
+      <th>6001</th>
+      <td>9833</td>
+      <td>1987-02-12 18:00:00.000040448</td>
+      <td>139.817963</td>
+      <td>-15.790068</td>
+      <td>970.0</td>
+    </tr>
+    <tr>
+      <th>6002</th>
+      <td>9833</td>
+      <td>1987-02-13 00:00:00.000040448</td>
+      <td>140.160004</td>
+      <td>-16.719999</td>
+      <td>970.0</td>
+    </tr>
+    <tr>
+      <th>6003</th>
+      <td>9833</td>
+      <td>1987-02-13 06:00:00.000040448</td>
+      <td>140.032623</td>
+      <td>-17.892567</td>
+      <td>980.0</td>
+    </tr>
+    <tr>
+      <th>6004</th>
+      <td>9833</td>
+      <td>1987-02-13 12:00:00.000040448</td>
+      <td>139.699997</td>
+      <td>-19.200003</td>
+      <td>996.0</td>
+    </tr>
+    <tr>
+      <th>6005</th>
+      <td>9833</td>
+      <td>1987-02-13 18:00:00.000040448</td>
+      <td>139.480362</td>
+      <td>-20.108568</td>
+      <td>998.0</td>
+    </tr>
+    <tr>
+      <th>6006</th>
+      <td>9833</td>
+      <td>1987-02-14 00:00:00.000040448</td>
+      <td>139.399994</td>
+      <td>-21.100000</td>
+      <td>1001.0</td>
+    </tr>
+    <tr>
+      <th>6007</th>
+      <td>9835</td>
+      <td>1987-02-07 12:00:00.000040448</td>
+      <td>161.800003</td>
+      <td>-13.050001</td>
+      <td>990.0</td>
+    </tr>
+    <tr>
+      <th>6008</th>
+      <td>9835</td>
+      <td>1987-02-07 18:00:00.000040448</td>
+      <td>163.449997</td>
+      <td>-13.150000</td>
+      <td>995.0</td>
+    </tr>
+    <tr>
+      <th>6009</th>
+      <td>9835</td>
+      <td>1987-02-08 00:00:00.000040448</td>
+      <td>166.242844</td>
+      <td>-14.371429</td>
+      <td>997.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#path to your daily mean SST and MLD data</span>
+<span class="n">path_sst</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/media/administrador/SAMSUNG/seasonal_forecast/data/SST/&#39;</span>
+<span class="n">path_mld</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/media/administrador/SAMSUNG/seasonal_forecast/data/CFS/ocnmld/&#39;</span>
+<span class="n">path_p</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/seasonal/seasonal_forecast/new/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>For the calibration period the points with pressure, SST and MLD data in the target area are kept.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_p_sst_mld</span><span class="p">(</span><span class="n">df0</span><span class="p">,</span><span class="n">path_sst</span><span class="p">,</span><span class="n">path_mld</span><span class="p">)</span>
+<span class="n">df_cali</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">5184</span><span class="p">:])</span> <span class="c1">#years of the calibration period</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start time:  2021-04-13 13:37:32.513946
+End time:    2021-04-13 13:41:41.488278 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data</span>
+<span class="n">path_p</span><span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/seasonal/seasonal_forecast/new/&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">path_p</span><span class="o">+</span><span class="s1">&#39;df_coordinates_pmin_sst_mld_2019.pkl&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>st</th>
+      <th>time</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>pres</th>
+      <th>sst</th>
+      <th>mld</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14274</th>
+      <td>13348</td>
+      <td>2019-12-31 06:00:00.000039936</td>
+      <td>185.616379</td>
+      <td>-20.368277</td>
+      <td>999.0</td>
+      <td>25.750000</td>
+      <td>40.666668</td>
+    </tr>
+    <tr>
+      <th>14275</th>
+      <td>13348</td>
+      <td>2019-12-31 09:00:00.000039936</td>
+      <td>186.182968</td>
+      <td>-20.301870</td>
+      <td>999.0</td>
+      <td>25.199999</td>
+      <td>43.166664</td>
+    </tr>
+    <tr>
+      <th>14276</th>
+      <td>13348</td>
+      <td>2019-12-31 12:00:00.000039936</td>
+      <td>186.849609</td>
+      <td>-20.312431</td>
+      <td>1000.0</td>
+      <td>26.049999</td>
+      <td>42.666664</td>
+    </tr>
+    <tr>
+      <th>14277</th>
+      <td>13348</td>
+      <td>2019-12-31 15:00:00.000039936</td>
+      <td>187.731110</td>
+      <td>-20.379351</td>
+      <td>1000.0</td>
+      <td>27.029999</td>
+      <td>35.708336</td>
+    </tr>
+    <tr>
+      <th>14278</th>
+      <td>13348</td>
+      <td>2019-12-31 18:00:00.000039936</td>
+      <td>188.699997</td>
+      <td>-20.499998</td>
+      <td>1001.0</td>
+      <td>26.430000</td>
+      <td>42.999996</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<br>
+</div>
+<div class="section" id="font-color-royalblue-predictor-grid-and-data-processing-font-a-name-pg-a">
+<h2><span class="section-number">3.2. </span><font color='royalblue'><strong>Predictor grid and data processing</strong></font> <a name="pg"></a><a class="headerlink" href="#font-color-royalblue-predictor-grid-and-data-processing-font-a-name-pg-a" title="Permalink to this headline">¶</a></h2>
+<p><strong>The historical datasets are interpolated into the a 1/2º grid resolution, defining this way the grid for the predictor in the target area.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_predictor_grid</span> <span class="o">=</span> <span class="n">plot_predictor_grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j03_18_0.png" src="_images/j03_18_0.png" />
+</div>
+</div>
+<br>
+<p><strong>MLD, SST and Pmin data plotted after preprocessing (left) and the same data after discretization in intervals of 0.5 m and 0.5ºC respectively (right):</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_sst_mlp_pmin_cali</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j03_20_0.png" src="_images/j03_20_0.png" />
+</div>
+</div>
+<br>
+</div>
+<div class="section" id="font-color-royalblue-index-definition-and-computation-font-a-name-dc-a">
+<h2><span class="section-number">3.3. </span><font color='royalblue'><strong>Index definition and computation</strong></font> <a name="dc"></a><a class="headerlink" href="#font-color-royalblue-index-definition-and-computation-font-a-name-dc-a" title="Permalink to this headline">¶</a></h2>
+<p><strong>The historic datasets are combined into the tailor-made index predictor. It is built from the combination of SST-MLD-Pmin of the coordinate dataset previously generated. For simplicity the index will range from 0 to 1, so the pressure range is rescaled in this range.</strong>
+<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># discretization: 0.5ºC (SST), 5m (MLD)</span>
+<span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span> <span class="o">=</span> <span class="n">data_to_discret</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sst&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;mld&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+
+<span class="c1"># index function</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">zz</span>
+<span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">zz</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">zz</span><span class="p">)</span>
+<span class="n">index_zz</span> <span class="o">=</span> <span class="p">(</span><span class="n">fmax</span> <span class="o">-</span> <span class="n">index</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">fmax</span><span class="o">-</span><span class="n">fmin</span><span class="p">)</span>
+
+<span class="c1"># remove nan</span>
+<span class="n">index_zz</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">index_zz</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<br><div style="padding: 15px; border: 1px solid transparent; border-color: transparent; margin-bottom: 20px; border-radius: 4px; color: rgb(0,0,0); background-color: #fcf8e3; border-color: #faebcc; ">
+<p><strong>The index predictor function:</strong> <br></p>
+<p><strong>index<sub>i</sub> = (P<sub>max</sub> - P<sub>i</sub>) / (P<sub>max</sub> - P<sub>min</sub>)</strong></p>
+</div><br><p><strong>The index plotted in the MLD-SST space:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig_index</span> <span class="o">=</span> <span class="n">plot_index</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">zz</span><span class="p">,</span><span class="n">index_zz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/j03_28_0.png" src="_images/j03_28_0.png" />
+</div>
+</div>
+<p><strong>Final dataset including all the variable and the index predictor values in the predictor grid.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">ds_index_sst_mld_calibration</span><span class="p">(</span><span class="n">path_sst</span><span class="p">,</span><span class="n">path_mld</span><span class="p">,</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start time:  2021-04-14 08:31:02.952802
+End   time:  2021-04-14 08:31:14.467662
+Merge time:  2021-04-14 08:38:58.435711 
+
+&lt;xarray.Dataset&gt;
+Dimensions:  (lat: 16, lon: 26, time: 13879)
+Coordinates:
+  * time     (time) datetime64[ns] 1982-01-01 1982-01-02 ... 2019-12-31
+  * lat      (lat) float64 -0.25 -2.25 -4.25 -6.25 ... -26.25 -28.25 -30.25
+  * lon      (lon) float64 160.2 162.2 164.2 166.2 ... 204.2 206.2 208.2 210.2
+Data variables:
+    index    (time, lat, lon) float64 0.3667 0.05833 0.0 ... 0.1167 0.2417 0.0
+    sst      (time, lat, lon) float32 30.77 30.95 30.03 ... 23.1 22.85 22.9
+    dbss     (time, lat, lon) float32 19.38 28.42 76.08 ... 24.33 23.88 19.75
+    mask     (lat, lon) float64 0.0 0.0 0.0 0.0 0.0 0.0 ... 0.0 0.0 0.0 0.0 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_slp</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/media/administrador/SAMSUNG/seasonal_forecast/data/CFS/&#39;</span>
+<span class="n">path_pp</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/pratel/&#39;</span>
+<span class="n">path_trmm</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;/home/administrador/Documentos/TRMM_daily/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span> <span class="o">=</span> <span class="n">ds_index_sst_mld_slp_pp_calibration</span><span class="p">(</span><span class="n">path_pp</span><span class="p">,</span><span class="n">path_slp</span><span class="p">,</span><span class="n">xs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start time:  2021-04-14 09:21:34.904732
+End   time:  2021-04-14 09:21:37.685073
+Merge time:  2021-04-14 09:25:09.111452 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xs_trmm</span> <span class="o">=</span> <span class="n">ds_trmm</span><span class="p">(</span><span class="n">path_trmm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Start time:  2021-04-19 15:21:32.682371
+End   time:  2021-04-19 15:21:32.855106
+Merge time:  2021-04-19 15:21:46.715566 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="j02.html" title="previous page"><span class="section-number">2. </span><font color='navy'><strong>Large Scale Predictors</strong></font></a>
+    <a class='right-next' id="next-link" href="j04.html" title="next page"><span class="section-number">4. </span><font color='navy'><strong>Statistical Downscaling Method</strong> </font></a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By GeoOcean<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
